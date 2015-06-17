@@ -5,6 +5,7 @@ build/
 *.iml
 *.ipr
 *.iws
+*.ids
 .idea/
 
 #Gradle
@@ -15,3 +16,5 @@ bin/
 
 # Java class files
 *.class
+
+gamedex.dat
