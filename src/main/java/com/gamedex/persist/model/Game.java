@@ -1,44 +1,59 @@
 package com.gamedex.persist.model;
 
-/**
- * Created by Dave on 6/17/2015.
- */
+import com.j256.ormlite.field.DatabaseField;
+import com.j256.ormlite.table.DatabaseTable;
+
+import java.util.List;
+
+@DatabaseTable(tableName = "games")
 public class Game {
-    private int id;
-    private String name;
+	@DatabaseField(id = true, columnName = "id")
+	private int id;
+	@DatabaseField(canBeNull = false, columnName = "name")
+	private String name;
 
-    public int getId() {
-        return id;
-    }
+	private List<Vendor> vendors;
 
-    public void setId(int id) {
-        this.id = id;
-    }
+	public List<Vendor> getVendors() {
+		return vendors;
+	}
 
-    public String getName() {
-        return name;
-    }
+	public void setVendors(List<Vendor> vendors) {
+		this.vendors = vendors;
+	}
 
-    public void setName(String name) {
-        this.name = name;
-    }
+	public int getId() {
+		return id;
+	}
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+	public void setId(int id) {
+		this.id = id;
+	}
 
-        Game game = (Game) o;
+	public String getName() {
+		return name;
+	}
 
-        if (id != game.id) return false;
-        return !(name != null ? !name.equals(game.name) : game.name != null);
+	public void setName(String name) {
+		this.name = name;
+	}
 
-    }
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
 
-    @Override
-    public int hashCode() {
-        int result = id;
-        result = 31 * result + (name != null ? name.hashCode() : 0);
-        return result;
-    }
+		Game game = (Game) o;
+
+		if (id != game.id) return false;
+		return !(name != null ? !name.equals(game.name) : game.name != null);
+
+	}
+
+	@Override
+	public int hashCode() {
+		int result = id;
+		result = 31 * result + (name != null ? name.hashCode() : 0);
+		return result;
+	}
 }
