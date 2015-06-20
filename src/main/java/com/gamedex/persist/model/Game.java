@@ -1,10 +1,16 @@
 package com.gamedex.persist.model;
 
-/**
- * Created by Dave on 6/17/2015.
- */
+import javax.persistence.*;
+
+@Entity
+@Table(name = "games")
 public class Game {
+    @Id
+    @GeneratedValue
+    @Column(name = "id")
     private int id;
+
+    @Column(name = "name")
     private String name;
 
     public int getId() {
