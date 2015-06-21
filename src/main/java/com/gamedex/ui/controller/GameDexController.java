@@ -8,8 +8,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -20,13 +19,15 @@ public class GameDexController {
 
     public ListView<GameListElement> gameListView;
 
+    @Autowired
+    private GameDao gameDao;
 
     @FXML
     protected void initialize(){
-        ApplicationContext context =
+        /*ApplicationContext context =
                 new ClassPathXmlApplicationContext("applicationContext.xml");
 
-        GameDao gameDao = (GameDao) context.getBean("gameDao");
+        GameDao gameDao = (GameDao) context.getBean("gameDao");*/
         List<Game> gameList = gameDao.getAllGames();
         List<GameListElement> gameListElements = gameList.stream().map(GameListElement::new).collect(Collectors.toList());
         ObservableList<GameListElement> gameObservableList = FXCollections.observableList(gameListElements);
