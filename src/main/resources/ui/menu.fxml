@@ -4,14 +4,14 @@
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.layout.Pane?>
-<Pane prefHeight="465.0" prefWidth="660.0" xmlns:fx="http://javafx.com/fxml"
+<Pane prefHeight="465.0" prefWidth="660.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8"
       fx:controller="com.gamedex.ui.controller.MenuBarController">
     <children>
         <MenuBar layoutX="0.0" layoutY="0.0">
             <menus>
-                <Menu mnemonicParsing="false" text="File">
+                <Menu mnemonicParsing="false" text="Games">
                     <items>
-                        <MenuItem text="Exit" onAction="#exit"/>
+                        <MenuItem id="addGameButton" onAction="#openAddGamePrompt" text="Add Game..."/>
                     </items>
                 </Menu>
             </menus>

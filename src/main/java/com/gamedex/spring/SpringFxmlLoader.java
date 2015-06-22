@@ -16,7 +16,7 @@ public class SpringFxmlLoader {
         try (InputStream fxmlStream = SpringFxmlLoader.class.getResourceAsStream(url)) {
             System.err.println(SpringFxmlLoader.class.getResourceAsStream(url));
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("/ui/MainUI.fxml"));
+            loader.setLocation(getClass().getResource(url));
             loader.setControllerFactory(applicationContext::getBean);
             return loader.load(fxmlStream);
         } catch (IOException ioException) {

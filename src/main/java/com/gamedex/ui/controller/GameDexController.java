@@ -23,18 +23,15 @@ public class GameDexController {
     private GameDao gameDao;
 
     @FXML
-    protected void initialize(){
-        /*ApplicationContext context =
-                new ClassPathXmlApplicationContext("applicationContext.xml");
-
-        GameDao gameDao = (GameDao) context.getBean("gameDao");*/
+    protected void initialize() {
         List<Game> gameList = gameDao.getAllGames();
         List<GameListElement> gameListElements = gameList.stream().map(GameListElement::new).collect(Collectors.toList());
         ObservableList<GameListElement> gameObservableList = FXCollections.observableList(gameListElements);
         gameListView.setItems(gameObservableList);
     }
+
     @FXML
-    public void handleButton(ActionEvent event){
+    public void handleButton(ActionEvent event) {
 
     }
 }

@@ -15,7 +15,7 @@
         <property name="hibernate.jdbc.batch_size">20</property>
 
 
-        <property name="hbm2ddl.auto">create</property>
+        <property name="hbm2ddl.auto">update</property>
         <!-- import this sql when the schema is created -->
         <property name="hibernate.hbm2ddl.import_files"></property>
 
